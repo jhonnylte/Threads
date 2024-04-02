@@ -31,6 +31,10 @@ public class atv1 {
             carro.setPreferredSize(new Dimension(10, 10));
             carro.setBounds(10, 230, 30, 15);
             frame.add(carro);
+            Carro car = new Carro(carro);
+            car.start();
+
+
 
             // Carro2
             JPanel carro2 = new JPanel();
