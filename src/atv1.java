@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class atv1 {
 
@@ -25,30 +27,24 @@ public class atv1 {
             label.setBounds(-1, 150, 800, 198);
             frame.add(label);
 
-            // Carro
-            JPanel carro = new JPanel();
-            carro.setBackground(Color.YELLOW);
-            carro.setPreferredSize(new Dimension(10, 10));
-            carro.setBounds(10, 230, 30, 15);
-            frame.add(carro);
-            Carro car = new Carro(carro);
-            car.start();
+
 
 
 
             // Carro2
+            /*
             JPanel carro2 = new JPanel();
             carro2.setBackground(Color.BLUE);
             carro2.setPreferredSize(new Dimension(10, 10));
             carro2.setBounds(750, 230, 30, 15);
-            frame.add(carro2);
+            frame.add(carro2);*/
 
             // Céu
-            JPanel retangulo = new JPanel();
-            retangulo.setBackground(Color.CYAN);
-            retangulo.setPreferredSize(new Dimension(100, 200));
-            retangulo.setBounds(0, 0, largTela, altTela/2);
-            frame.add(retangulo);
+            JPanel ceu = new JPanel();
+            ceu.setBackground(Color.CYAN);
+            ceu.setPreferredSize(new Dimension(100, 200));
+            ceu.setBounds(0, 0, largTela, altTela/2);
+            frame.add(ceu);
 
 
 
@@ -60,10 +56,31 @@ public class atv1 {
             JButton botao1 = new JButton("Adicionar Oeste");
             botao1.setBounds(largTela-750, altTela-100, 150, 30);
             frame.add(botao1);
+            botao1.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Carro car = new Carro(Carro.origem.oeste);
+                    frame.getContentPane().remove(ceu);
+                    frame.add(car.panel);
+                    frame.add(ceu);
+                    car.start();
+                }
+            });
+
 
             JButton botao2 = new JButton("Adicionar Leste");
             botao2.setBounds(largTela-200, altTela-100, 150, 30);
             frame.add(botao2);
+            botao2.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Carro car = new Carro(Carro.origem.leste);
+                    frame.getContentPane().remove(ceu);
+                    frame.add(car.panel);
+                    frame.add(ceu);
+                    car.start();
+                }
+            });
 
             frame.setVisible(true);
 
