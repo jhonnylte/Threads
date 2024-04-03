@@ -11,8 +11,6 @@ public class atv1 {
             int largTela = 800;
             int altTela = 600;
 
-            int xOeste = 10;
-            int xLeste = 750;
 
             JFrame frame = new JFrame("Ponte de Carros");
             frame.setSize(new Dimension(largTela, altTela));
@@ -28,24 +26,12 @@ public class atv1 {
             frame.add(label);
 
 
-
-
-
-            // Carro2
-            /*
-            JPanel carro2 = new JPanel();
-            carro2.setBackground(Color.BLUE);
-            carro2.setPreferredSize(new Dimension(10, 10));
-            carro2.setBounds(750, 230, 30, 15);
-            frame.add(carro2);*/
-
             // Céu
             JPanel ceu = new JPanel();
             ceu.setBackground(Color.CYAN);
             ceu.setPreferredSize(new Dimension(100, 200));
             ceu.setBounds(0, 0, largTela, altTela/2);
             frame.add(ceu);
-
 
 
             /*   Verificando se a imagem existe
