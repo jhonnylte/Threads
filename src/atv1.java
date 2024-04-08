@@ -38,6 +38,7 @@ public class atv1 {
             File file = new File("src/ponte.png");
             System.out.println(file.exists());*/
 
+
             // Botões
             JButton botao1 = new JButton("Adicionar Oeste");
             botao1.setBounds(largTela-750, altTela-100, 150, 30);
@@ -67,6 +68,27 @@ public class atv1 {
                     car.start();
                 }
             });
+
+            // Campos de texto Esquerdo
+
+            JLabel tempoTrav = new JLabel();
+            tempoTrav.setText("Tempo de travessia: ");
+            tempoTrav.setBounds(50, 330, 200, 100);
+            frame.add(tempoTrav);
+            JTextField campoTempoTrav = new JTextField();
+            campoTempoTrav.setBounds(largTela-750, 390, 150, 30);
+            frame.add(campoTempoTrav);
+
+            JLabel tempoPerma = new JLabel();
+            tempoPerma.setText("Tempo de permanência: ");
+            tempoPerma.setBounds(50, 390, 200, 100);
+            frame.add(tempoPerma);
+            JTextField campoTempoPerma = new JTextField();
+            campoTempoPerma.setBounds(largTela-750, 450, 150, 30);
+            frame.add(campoTempoPerma);
+
+
+
 
             frame.setVisible(true);
 
