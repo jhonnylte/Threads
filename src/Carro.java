@@ -14,7 +14,6 @@ public class Carro extends Thread{
         int speed = 5;
         int currentX = panel.getX();
 
-
         try {
             while (panel.getX() < Xfinal){
                 currentX += speed;
