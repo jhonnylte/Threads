@@ -3,9 +3,11 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.concurrent.Semaphore;
 
 public class atv1 {
-
+    public static Semaphore Mutex = new Semaphore(0);
 
         public static void main(String[] args) {
             int largTela = 800;
@@ -34,9 +36,9 @@ public class atv1 {
             frame.add(ceu);
 
 
-            /*   Verificando se a imagem existe
-            File file = new File("src/ponte.png");
-            System.out.println(file.exists());*/
+            /*  Verificando se a imagem existe*/
+            //File file = new File("src/carLeste.png");
+            //System.out.println(file.exists());
 
 
             // Botões
@@ -70,7 +72,6 @@ public class atv1 {
             });
 
             // Campos de texto Esquerdo
-
             JLabel tempoTrav = new JLabel();
             tempoTrav.setText("Tempo de travessia: ");
             tempoTrav.setBounds(50, 330, 200, 100);
