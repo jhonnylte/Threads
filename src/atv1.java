@@ -42,53 +42,8 @@ public class atv1 {
             //System.out.println(file.exists());
 
 
-            // Botões
-            JButton botao1 = new JButton("Adicionar Oeste");
-            botao1.setBounds(largTela-750, altTela-100, 150, 30);
-            frame.add(botao1);
-            botao1.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    Carro car = new Carro(Carro.origem.oeste);
-                    frame.getContentPane().remove(ceu);
-                    frame.add(car.panel);
-                    frame.add(ceu);
-                    car.start();
-                }
-            });
-
 
             //Lado Oeste
-
-
-
-            //Lado Leste
-            JTextField tempoTravessiaLeste = new JTextField(10);
-            tempoTravessiaLeste.setBounds(largTela-200, altTela-180, 150, 30);
-            frame.add(tempoTravessiaLeste);
-
-            JTextField tempodePermanciaLeste = new JTextField(10);
-            tempodePermanciaLeste.setBounds(largTela-200, altTela-140, 150, 30);
-            frame.add(tempodePermanciaLeste);
-
-            /*JButton botaoLeste = new JButton("Adicionar Leste");
-            botaoLeste.setBounds(largTela-200, altTela-100, 150, 30);
-            frame.add(botaoLeste);*/
-            JButton botao2 = new JButton("Adicionar Leste");
-            botao2.setBounds(largTela-200, altTela-100, 150, 30);
-            frame.add(botao2);
-            botao2.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    Carro car = new Carro(Carro.origem.leste);
-                    frame.getContentPane().remove(ceu);
-                    frame.add(car.panel);
-                    frame.add(ceu);
-                    car.start();
-                }
-            });
-
-            // Campos de texto Esquerdo
             JLabel tempoTrav = new JLabel();
             tempoTrav.setText("Tempo de travessia: ");
             tempoTrav.setBounds(50, 330, 200, 100);
@@ -105,6 +60,53 @@ public class atv1 {
             campoTempoPerma.setBounds(largTela-750, 450, 150, 30);
             frame.add(campoTempoPerma);
 
+            JButton botao1 = new JButton("Adicionar Oeste");
+            botao1.setBounds(largTela-750, altTela-100, 150, 30);
+            frame.add(botao1);
+            botao1.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Carro car = new Carro(Carro.origem.oeste);
+                    frame.getContentPane().remove(ceu);
+                    frame.add(car.panel);
+                    frame.add(ceu);
+                    car.start();
+                }
+            });
+
+
+
+            //Lado Leste
+            JLabel tempoTravDir = new JLabel();
+            tempoTravDir.setText("Tempo de travessia: ");
+            tempoTravDir.setBounds(largTela-200, 330, 200, 100);
+            frame.add(tempoTravDir);
+            JTextField tempoTravessiaLeste = new JTextField(10);
+            tempoTravessiaLeste.setBounds(largTela-200, 390, 150, 30);
+            frame.add(tempoTravessiaLeste);
+
+            JLabel tempoPermaDir = new JLabel();
+            tempoPermaDir.setText("Tempo de permanência: ");
+            tempoPermaDir.setBounds(largTela-200, 390, 200, 100);
+            frame.add(tempoPermaDir);
+            JTextField tempodePermanciaLeste = new JTextField(10);
+            tempodePermanciaLeste.setBounds(largTela-200, 450, 150, 30);
+            frame.add(tempodePermanciaLeste);
+
+
+            JButton botao2 = new JButton("Adicionar Leste");
+            botao2.setBounds(largTela-200, altTela-100, 150, 30);
+            frame.add(botao2);
+            botao2.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Carro car = new Carro(Carro.origem.leste);
+                    frame.getContentPane().remove(ceu);
+                    frame.add(car.panel);
+                    frame.add(ceu);
+                    car.start();
+                }
+            });
 
 
 
