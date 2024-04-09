@@ -28,6 +28,7 @@ public class Carro extends Thread{
 
     public void run(){
         int currentX = panel.getX();
+
         try {
             if(this.o == origem.oeste)
                 while (panel.getX() < Xfinal){

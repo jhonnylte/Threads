@@ -1,17 +1,18 @@
 import javax.swing.*;
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.util.concurrent.Semaphore;
 
 public class atv1 {
+
     public static Semaphore Mutex = new Semaphore(0);
 
         public static void main(String[] args) {
             int largTela = 800;
             int altTela = 600;
+
 
 
             JFrame frame = new JFrame("Ponte de Carros");
@@ -57,6 +58,22 @@ public class atv1 {
             });
 
 
+            //Lado Oeste
+
+
+
+            //Lado Leste
+            JTextField tempoTravessiaLeste = new JTextField(10);
+            tempoTravessiaLeste.setBounds(largTela-200, altTela-180, 150, 30);
+            frame.add(tempoTravessiaLeste);
+
+            JTextField tempodePermanciaLeste = new JTextField(10);
+            tempodePermanciaLeste.setBounds(largTela-200, altTela-140, 150, 30);
+            frame.add(tempodePermanciaLeste);
+
+            /*JButton botaoLeste = new JButton("Adicionar Leste");
+            botaoLeste.setBounds(largTela-200, altTela-100, 150, 30);
+            frame.add(botaoLeste);*/
             JButton botao2 = new JButton("Adicionar Leste");
             botao2.setBounds(largTela-200, altTela-100, 150, 30);
             frame.add(botao2);
