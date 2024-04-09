@@ -6,10 +6,14 @@ public class Carro extends Thread{
     public int Xfinal = 800;
     public int Xinicio = 0;
     public int passo = 0;
+    public int tempoTravessia;
+    public int tempoPermanencia;
     public enum origem {oeste, leste}
     public origem o;
-    public Carro(origem o) {
+    public Carro(origem o, int tempoTravessia, int tempoPermanencia) {
         this.o = o;
+        this.tempoTravessia = (int) Math.round((float) (tempoTravessia * 1000) /80) ;
+        this.tempoPermanencia = tempoPermanencia;
         if(this.o == origem.oeste) {
             passo = 10;
             this.panel.setBackground(Color.YELLOW);
@@ -28,19 +32,21 @@ public class Carro extends Thread{
         int currentX = panel.getX();
 
         try {
+
             if(this.o == origem.oeste) {
                 // IDA
                 while (panel.getX() < Xfinal) {
+
                     currentX += passo;
                     int finalCurrentX = currentX;
                     SwingUtilities.invokeLater(() -> panel.setLocation(finalCurrentX, panel.getY()));
                     System.out.println(panel.getX());
 
                     // Velocidade
-                    Thread.sleep(10);
+                    Thread.sleep(tempoTravessia);
 
                 }
-
+                Thread.sleep(tempoPermanencia);
                 // VOLTA
                 while (panel.getX() > Xinicio) {
                     currentX -= passo;
@@ -49,10 +55,12 @@ public class Carro extends Thread{
                     System.out.println(panel.getX());
 
                     // Velocidade
-                    Thread.sleep(10);
+                    Thread.sleep(tempoTravessia);
                 }
-
+                System.out.println(tempoTravessia);
             }
+
+
 
             if(this.o == origem.leste) {
                 // IDA
@@ -63,9 +71,9 @@ public class Carro extends Thread{
                     System.out.println(panel.getX());
 
                     // Velocidade
-                    Thread.sleep(10);
+                    Thread.sleep(tempoTravessia);
                 }
-
+                Thread.sleep(tempoPermanencia);
                 // VOLTA
                 while (panel.getX() < Xfinal) {
                     currentX += passo;
@@ -74,7 +82,7 @@ public class Carro extends Thread{
                     System.out.println(panel.getX());
 
                     // Velocidade
-                    Thread.sleep(10);
+                    Thread.sleep(tempoTravessia);
 
                 }
             }

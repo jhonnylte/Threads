@@ -13,8 +13,6 @@ public class atv1 {
             int largTela = 800;
             int altTela = 600;
 
-
-
             JFrame frame = new JFrame("Ponte de Carros");
             frame.setSize(new Dimension(largTela, altTela));
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,7 +43,7 @@ public class atv1 {
 
             //Lado Oeste
             JLabel tempoTrav = new JLabel();
-            tempoTrav.setText("Tempo de travessia: ");
+            tempoTrav.setText("Tempo de travessia(s): ");
             tempoTrav.setBounds(50, 330, 200, 100);
             frame.add(tempoTrav);
             JTextField campoTempoTrav = new JTextField();
@@ -53,7 +51,7 @@ public class atv1 {
             frame.add(campoTempoTrav);
 
             JLabel tempoPerma = new JLabel();
-            tempoPerma.setText("Tempo de permanência: ");
+            tempoPerma.setText("Tempo de permanência(s): ");
             tempoPerma.setBounds(50, 390, 200, 100);
             frame.add(tempoPerma);
             JTextField campoTempoPerma = new JTextField();
@@ -66,7 +64,11 @@ public class atv1 {
             botao1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Carro car = new Carro(Carro.origem.oeste);
+                    Carro car = new Carro(Carro.origem.oeste,
+                            Integer.parseInt(campoTempoTrav.getText()),
+                            Integer.parseInt(campoTempoPerma.getText())*1000
+                    );
+
                     frame.getContentPane().remove(ceu);
                     frame.add(car.panel);
                     frame.add(ceu);
@@ -100,7 +102,9 @@ public class atv1 {
             botao2.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Carro car = new Carro(Carro.origem.leste);
+                    Carro car = new Carro(Carro.origem.leste,
+                            Integer.parseInt(tempoTravessiaLeste.getText()),
+                            Integer.parseInt(tempodePermanciaLeste.getText())*1000);
                     frame.getContentPane().remove(ceu);
                     frame.add(car.panel);
                     frame.add(ceu);
