@@ -7,11 +7,6 @@ import java.util.concurrent.Semaphore;
 
 public class atv1 {
 
-    public static Semaphore semaEsquerda = new Semaphore(0);
-    public static Semaphore semaDireita = new Semaphore(0);
-
-    public static Semaphore waitLiberar = new Semaphore(0);
-
 
         public static void main(String[] args) {
             int largTela = 800;
@@ -68,14 +63,11 @@ public class atv1 {
             botao1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Carro car = new Carro(Carro.origem.oeste,
+                    Carro car = new Carro("oeste",
                             Integer.parseInt(campoTempoTrav.getText()),
-                            Integer.parseInt(campoTempoPerma.getText())*1000,
-                            semaEsquerda,
-                            semaDireita,
-                            waitLiberar
+                            Integer.parseInt(campoTempoPerma.getText())*1000
                     );
-                    semaEsquerda.release();
+
                     frame.getContentPane().remove(ceu);
                     frame.add(car.panel);
                     frame.add(ceu);
@@ -109,12 +101,10 @@ public class atv1 {
             botao2.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Carro car = new Carro(Carro.origem.leste,
+                    Carro car = new Carro("leste",
                             Integer.parseInt(tempoTravessiaLeste.getText()),
-                            Integer.parseInt(tempodePermanciaLeste.getText())*1000,
-                            semaEsquerda,
-                            semaDireita,
-                            waitLiberar);
+                            Integer.parseInt(tempodePermanciaLeste.getText())*1000
+                            );
                     frame.getContentPane().remove(ceu);
                     frame.add(car.panel);
                     frame.add(ceu);
